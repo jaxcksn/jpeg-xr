@@ -92,11 +92,8 @@ fn a_huge_index_table_is_refused_before_it_is_read() {
     for probe in [true, false] {
         let base = LIVE.load(Relaxed);
         PEAK.store(base, Relaxed);
-        let err = if probe {
-            jpeg_xr::probe(&data).err()
-        } else {
-            jpeg_xr::decode_rgba8(&data, &Limits::default()).err()
-        };
+        let err =
+            if probe { jpeg_xr::probe(&data).err() } else { jpeg_xr::decode_rgba8(&data, &Limits::default()).err() };
         let peak = PEAK.load(Relaxed) - base;
         assert_eq!(err, Some(Error::Limit));
         assert!(peak < 1 << 20, "peak {peak} bytes");

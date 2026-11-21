@@ -232,7 +232,14 @@ pub fn decode(bytes: &[u8], limits: &Limits) -> Result<Image, Error> {
         let planes = a.decode()?;
         write_plane(&planes[0], &a.header, &mut data, channels, Role::Alpha { interleaved: false });
     }
-    Ok(Image { width: info.width, height: info.height, layout: info.layout, premultiplied: info.premultiplied, orientation: info.orientation, data })
+    Ok(Image {
+        width: info.width,
+        height: info.height,
+        layout: info.layout,
+        premultiplied: info.premultiplied,
+        orientation: info.orientation,
+        data,
+    })
 }
 
 /// Decodes an image into RGBA, 8 bits a channel; grey is spread to all three colours and opaque images get an

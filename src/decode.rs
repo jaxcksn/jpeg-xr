@@ -1,10 +1,10 @@
 //! CODED_IMAGE( ) (T.832 8.2), its tiles (8.7.1 to 8.7.9), and output formatting (9.10)
 
-use crate::{Error, Limits};
 use crate::bits::Bits;
 use crate::header::{Bands, Format, ImageHeader, Output, PlaneHeader};
 use crate::plane::{At, Plane};
 use crate::transform::reconstruct;
+use crate::{Error, Limits};
 
 /// The samples the planes hold, padding to whole macroblocks included.
 fn work(header: &ImageHeader, planes: &[PlaneHeader]) -> u64 {
