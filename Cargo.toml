@@ -5,6 +5,7 @@ edition = "2024"
 rust-version = "1.85"
 description = "A pure-Rust JPEG XR (ITU-T T.832) decoder with no unsafe code and no dependencies"
 license = "MIT OR Apache-2.0"
+repository = "https://github.com/jaxcksn/jpeg-xr"
 keywords = ["jpeg-xr", "jxr", "hdphoto", "wdp", "image"]
 categories = ["multimedia::images", "encoding"]
 readme = "README.md"
